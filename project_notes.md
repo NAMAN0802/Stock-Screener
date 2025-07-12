@@ -1,4 +1,4 @@
-# Project Overview and flow
+<!-- # Project Overview and flow
 
 1. Download data from yfinance or web scrapping using beautifulsoup3
 2. Store the data in Pandas dataframe
@@ -16,4 +16,24 @@
 2. Get the stock symbols
 3. fetch the data from yfinance
 4. Store it in .csv files to not download again and again when code runs
-5. Load those .csv in data frames
+5. Load those .csv in data frames -->
+
+# Project Overview and Flow
+
+## Data Gathering using API and Scraping
+1. Download tick data from yfinance and store that in csv files.
+2. Scrape fundamental data from www.screener.in using Scrapy and Selenium. 
+3. To prevent IP blocking uses header rotation and delays.
+4. Store the Raw scraped data in csv files.
+5. Scraped data in the following format
+    - summary
+    - peer comparsion
+    - profit loss
+    - balance sheet
+    - cash flow
+    - quaterly results
+    - ratios
+    - shareholing patterns 
+
+## Data Pipeline to Clean and Store data
+1. 
