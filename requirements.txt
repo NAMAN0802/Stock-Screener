@@ -1,0 +1,6 @@
+scrapy
+scrapy-user-agents
+fastapi
+uvicorn 
+pydantic
+sqlalchemy
