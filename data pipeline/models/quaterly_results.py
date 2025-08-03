@@ -20,4 +20,4 @@ class QuaterlyResults(Base):
     net_profit = Column(Integer)
     ebitda = Column(Float)
     eps = Column(Float)
-    stock = relationship("Stocks",back_populates="quaterlyresults",uselist=False)
+    stock = relationship("Stocks",back_populates="quaterlyresults")

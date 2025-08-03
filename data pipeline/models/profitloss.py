@@ -21,4 +21,4 @@ class ProfitLoss(Base):
     ebitda = Column(Float)
     eps = Column(Float)
     dividend_yield = Column(Float)
-    stock = relationship("Stocks",back_populates="profitloss",uselist=False)
+    stock = relationship("Stocks",back_populates="profitloss")

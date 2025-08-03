@@ -7,26 +7,38 @@ class Stocks(Base):
     id = Column(Integer,primary_key=True,autoincrement=True)
     name = Column(String,nullable=False,unique=True)
     symbol = Column(String,nullable=False,unique=True)
-    market_cap = Column(Integer,nullable=False)
+    market_cap = Column(Float,nullable=False)
     sector = Column(String,nullable=False)
     industry = Column(String)
     sub_industry = Column(String)
-    book_value = Column(Integer)
+    book_value = Column(Float)
+
     roce = Column(Float)
     roe = Column(Float)
+
     dividend_yield = Column(Float)
+
     pe_ratio = Column(Float)
+    pb_ratio = Column(Float)
+    ps_ratio = Column(Float)
+
+    eps = Column(Float)
     debt_to_equity = Column(Float)
     current_ratio = Column(Float)
-    eps = Column(Float)
-    pb_ratio = Column(Float)
     interest_coverage = Column(Float)
     opm = Column(Float)
     npm = Column(Float)
-    ratios=relationship("Ratios",back_populates="stock",uselist=False)
-    shareholding=relationship("Shareholding",back_populates="stock",uselist=False)
-    profitloss=relationship("ProfitLoss",back_populates="stock",uselist=False)
-    cashflow=relationship("Cashflow",back_populates="stock",uselist=False)
-    balancesheet=relationship("BalanceSheet",back_populates="stock",uselist=False)
-    quaterlyresults=relationship("QuaterlyResults",back_populates="stock",uselist=False)
+
+    ttm_pe_ratio = Column(Float) # Added
+
+    sales_growth_yoy = Column(Float) # Added
+    profit_growth_yoy = Column(Float) # Added
+    operating_cash_flow_yoy = Column(Float) # Added
+
+    ratios=relationship("Ratios",back_populates="stock")
+    shareholding=relationship("Shareholding",back_populates="stock")
+    profitloss=relationship("ProfitLoss",back_populates="stock")
+    cashflow=relationship("Cashflow",back_populates="stock")
+    balancesheet=relationship("BalanceSheet",back_populates="stock")
+    quaterlyresults=relationship("QuaterlyResults",back_populates="stock")
 

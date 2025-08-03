@@ -12,4 +12,4 @@ class Ratios(Base):
     days_payable = Column(Integer)
     cash_conversion_days = Column(Integer)
     working_capital_days = Column(Integer)
-    stock = relationship("Stocks",back_populates="ratios",uselist=False)
+    stock = relationship("Stocks",back_populates="ratios")
