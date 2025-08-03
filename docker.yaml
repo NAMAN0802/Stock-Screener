@@ -1,0 +1,33 @@
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: naman
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: stock_screener
+    ports:
+      - "5432:5432"
+    volumes:
+      - E:/Stock-Screener/postgres/db:/var/lib/postgresql/data
+    networks:
+      - stock_screener
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: gnaman694@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: kridhav@12
+    ports:
+      - "5050:80"
+    volumes:
+      - E:/Stock-Screener/postgres/pgadmin:/var/lib/pgadmin
+    networks:
+      - stock_screener
+
+networks:
+  stock_screener:
+    driver: bridge
