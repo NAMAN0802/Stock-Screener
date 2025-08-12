@@ -88,7 +88,7 @@ class StockSpider(scrapy.Spider):
             records = []
             company_name = sel.xpath('//div[@class="card card-large"]//h1/text()').get()
             nse_link = sel.xpath('//a[contains(@href, "nseindia.com/get-quotes/equity?symbol=")]/@href').get()
-            industries = sel.xpath('//p[@class="sub"]//a/text()').getall()
+            industries = sel.xpath('//h2[text()="Peer comparison"]/following-sibling::p[@class="sub"][1]//a/text()').getall()
             industries = " > ".join(industries[:4]).strip()  # Join industries in a hierarchical format (e.g., "FMCG > Food Products > Seafood")
             records.append({'Metric': 'Company Name', 'Value': company_name})
             records.append({'Metric': 'NSE Link', 'Value': nse_link})
