@@ -36,4 +36,10 @@
     - shareholing patterns 
 
 ## Data Pipeline to Clean and Store data
-1. 
+1. Read all csvs and store that in raw df
+2. If it is summary csv then make it a series and based on the numerical columns, clean the data like convert the strings to integer and store that cleaned series in preprocessed_data_for_calc_and_detail dictionary with summary as column.
+3. For all other dataframes in raw df like profit loss, cash flow, balance sheet and quarterly results, transpose the data so that all the raws which are date become column and all the columns which are parameters become rows. While doing this process, all the columns are cleans like removing extra spcaes, +, % from column name and remove dublicate columns.
+4. In case of profit loss, all the columns after divident yields drops.
+5. In case of quarterly results, last columns which is raw pdf drops.
+6. After that all the data frames are stored in preprocessed_data_for_calc_and_detail dictionary with key as the name of the csv file.
+7. preprocessed_data_for_calc_and_detail dictionary is then pased to function which calculate all the ratios and returned to pre computed fields.

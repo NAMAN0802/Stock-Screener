@@ -11,4 +11,4 @@ class CashFlow(Base):
     cash_from_investing_activities = Column(Float)
     cash_from_financing_activities = Column(Float)
     net_cash_flow = Column(Float)
-    stock = relationship("Stock", back_populates="cashflow")
+    stock = relationship("Stocks", back_populates="cashflow")

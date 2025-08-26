@@ -17,4 +17,4 @@ class BalanceSheet(Base):
     investments = Column(Float)
     other_assets = Column(Float)
     total_assets = Column(Float)
-    stock = relationship("Stock", back_populates="balancesheet")
+    stock = relationship("Stocks", back_populates="balancesheet")

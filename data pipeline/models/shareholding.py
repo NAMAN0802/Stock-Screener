@@ -12,4 +12,4 @@ class Shareholding(Base):
     dii_holding = Column(Float)
     government_holding = Column(Float)
     public_holding = Column(Float)
-    stock = relationship("Stock", back_populates="shareholding")
+    stock = relationship("Stocks", back_populates="shareholding")

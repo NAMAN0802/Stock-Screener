@@ -10,7 +10,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - E:/Stock-Screener/postgres/db:/var/lib/postgresql/data
+      - D:/python project/postgres/db:/var/lib/postgresql/data
     networks:
       - stock_screener
 
@@ -24,7 +24,7 @@ services:
     ports:
       - "5050:80"
     volumes:
-      - E:/Stock-Screener/postgres/pgadmin:/var/lib/pgadmin
+      - D:/python project/postgres/pgadmin:/var/lib/pgadmin
     networks:
       - stock_screener
 

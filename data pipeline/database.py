@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Index, create_engine
-from sqlalchemy.orm import declarative_base, relationship, backref
+from sqlalchemy.orm import declarative_base, relationship, backref, sessionmaker
 from base import Base
 from models import Stocks, Ratios, ProfitLoss, Shareholding, CashFlow, BalanceSheet
 import os
@@ -18,8 +18,13 @@ class Database:
         # self.engine = create_engine(f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
         with self.engine.connect() as conn:
             print("Connected to database")
+        self.Session = sessionmaker(bind=self.engine)
 
-    def create_tables(self):
+    def create_tables(self, drop_first=False):
+        if drop_first:
+            print("Dropping all tables...")
+            Base.metadata.drop_all(self.engine)
+            print("Tables dropped.")
         Base.metadata.create_all(self.engine)
 
 
